@@ -1,0 +1,125 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Mudança para uma fonte mais moderna */
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.header {
+    background: linear-gradient(90deg, #007acc, #005fa3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0; /* Mais espaçamento */
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Espaçamento maior entre os links */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px; /* Aumenta o padding para um clique mais fácil */
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    font-weight: 500; /* Fonte um pouco mais ousada */
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1); /* Aumenta a animação do hover */
+}
+
+.container {
+    padding: 30px; /* Aumenta o padding */
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+.title {
+    color: #007acc;
+    font-size: 2.5em; /* Tamanho maior para o título */
+    text-align: center;
+}
+
+.subtitle {
+    color: #005fa3;
+    font-size: 1.5em; /* Tamanho maior para o subtítulo */
+    text-align: center;
+}
+
+.info {
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px; /* Aumenta o padding */
+    background: linear-gradient(90deg, #007acc, #005fa3);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.container {
+    min-height: calc(100vh - 100px); /* Ajusta baseado na altura do footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Animações */
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Para dar ênfase a informações específicas */
+.info.animate {
+    animation: fadeInUp 0.8s forwards;
+    font-weight: bold;
+    color: #e64a19; /* Cor chamativa para enfatizar */
+}
+
+/* Remove o sublinhado dos links */
+a {
+    text-decoration: none;
+}
+
+/* Estilizando links com hover */
+a:hover {
+    color: #ff4081; /* Cor ao passar o mouse */
+    transition: color 0.3s; /* Transição suave de cor */
+}
+/* Remover a cor azul do link ao clicar e após visitar */
+.nav-link a:visited {
+    color: white; /* Define a cor do link visitado como branca */
+}
+
+.nav-link:active {
+    color: #ff4081; /* Define uma cor ao clicar */
+}

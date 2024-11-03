@@ -7,6 +7,7 @@ const githubRouter = require('./src/controllers/github-auth');
 const protectedRouter = require('./src/controllers/protected-route');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 require('dotenv').config();
 
@@ -22,7 +23,7 @@ const connectToMongoDb = () => {
     });
 };
 connectToMongoDb();
-
+app.use(flash());
 app.use(
   session({
     resave: false,
@@ -34,21 +35,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
-});
+passport.serializeUser(function (user, cb) {cb(null, user);});
+passport.deserializeUser(function (obj, cb) {cb(null, obj);});
 
-app.get('/', (req, res) => {
-  res.render('auth');
-});
+app.get('/', (req, res) => { res.render('auth');});
+app.get('/privacy', (req, res) => {  res.render('privacy')}); // Renderiza a página privacy.ejs
+app.get('/home', (req, res) => {  res.render('auth')});// Renderiza a página privacy.ejs
 
-app.use('/auth/google', authRouter);
-app.use('/auth/facebook', facebookRouter);
-app.use('/auth/github', githubRouter);
-app.use('/protected', protectedRouter);
+app.use('/auth/facebook', facebookRouter); // app.use('/auth/google', authRouter);
+app.use('/protected', protectedRouter);// app.use('/auth/github', githubRouter);
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('App listening on port ' + port));
+app.listen(port, () => console.log('App listening on port http://localhost:' + port));

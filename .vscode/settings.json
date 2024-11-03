@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d8f0bafb-6f11-40b8-8875-c175277f3d27/resourceGroups/o-scheduler-app/providers/Microsoft.Web/sites/ads-scheduler-notify",
+    "appService.deploySubpath": "."
+}

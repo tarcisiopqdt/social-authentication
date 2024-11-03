@@ -14,6 +14,7 @@ passport.use(
       callbackURL: process.env.FACEBOOK_CALLBACK_URL,
     },
     async function (accessToken, refreshToken, profile, cb) {
+      // console.log("profile",profile)
       const user = await User.findOne({
         accountId: profile.id,
         provider: 'facebook',
@@ -37,7 +38,7 @@ passport.use(
   )
 );
 
-router.get('/', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/', passport.authenticate('facebook', { scope: ['email', 'public_profile'] }));
 
 router.get(
   '/callback',
@@ -51,11 +52,15 @@ router.get(
 );
 
 router.get('/success', async (req, res) => {
+  if (!req.user) {
+    return res.redirect('/auth/facebook/error');
+  }
   const userInfo = {
-    id: req.session.passport.user.id,
-    displayName: req.session.passport.user.displayName,
-    provider: req.session.passport.user.provider,
+    id: req.user.id,
+    displayName: req.user.displayName,
+    provider: req.user.provider,
   };
+  console.log(userInfo)
   res.render('fb-github-success', { user: userInfo });
 });
 

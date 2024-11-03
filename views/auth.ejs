@@ -12,34 +12,44 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <title>Social Auth</title>
-    <style>
-      body {
-        padding-top: 70px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>O Scheduler - Auth</title>
   </head>
   <body>
+  
     <div class="container">
+      <header class="header">
+        <nav class="navbar">
+            <ul class="nav-list">
+              <li><a href="/home" class="nav-link">Home</a></li>
+                              <li><a href="/privacy">Política de Privacidade</a></li> <!-- Link para a política de privacidade -->
+            </ul>
+        </nav>
+    </header>
       <div class="jumbotron text-center text-primary">
-        <h1><span class="fa fa-lock"></span> Social Authentication</h1>
-        <p>Login or Register with:</p>
-        <a href="/auth/google" class="btn btn-danger"
-          ><span class="fa fa-google"></span> Sign Up with Google</a
-        >
+
+        <h1 class="title animate">O Schedulador - Era High Tech</h1>
+        <p class="subtitle animate">O mais simples e prático aplicativo de envio de alertas das minhas métricas de anúncio</p>
+        <h4 class="description animate">Este aplicativo permite que usuários configurem alertas para serem enviados por e-mail. Os usuários podem programar o envio dos e-mails para um horário específico através de um formulário simples de configuração.</h4>
+        
+        <p class="animate"><strong>Ações para Verificação do Facebook</strong></p>
+        <p class="info animate">Domínio do App:</p>
+        <p class="description animate">Este aplicativo é projetado para garantir a segurança dos dados dos usuários, utilizando OAuth para autenticação e autorização seguras.</p>
+      
+        <p>Para mais informações, visite minha <a href="https://link-da-sua-politica-de-privacidade" class="link">Política de Privacidade</a>.</p>
         <br />
         <br />
 
         <a href="/auth/facebook" class="btn btn-warning"
-          ><span class="fa fa-facebook"></span> Sign Up with Facebook</a
+          ><span class="fa fa-facebook"></span>Login com o Facebook</a
         >
 
         <br />
         <br />
 
-        <a href="/auth/github" class="btn btn-dark"
+        <!-- <a href="/auth/github" class="btn btn-dark"
           ><span class="fa fa-github"></span> Sign Up with Github</a
-        >
+        > -->
       </div>
     </div>
   </body>
